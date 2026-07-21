@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export function AboutMe() {
   return (
-    <section id="about" className="w-full bg-background pt-0 pb-20 sm:pb-24">
+    <section id="about" className="w-full bg-background pt-0 pb-12 sm:pb-16">
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-12">
         {/* Section header in top border */}
         <div className="flex items-center gap-4 mb-10">

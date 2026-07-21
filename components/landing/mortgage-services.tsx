@@ -74,7 +74,7 @@ import {
 
 export function MortgageServices() {
   return (
-    <section className="w-full bg-background py-24 sm:py-32">
+    <section className="w-full bg-background py-16 sm:py-24">
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-12">
         {/* Header */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 mb-12 lg:mb-14">

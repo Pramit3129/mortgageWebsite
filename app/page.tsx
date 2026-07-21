@@ -1,6 +1,7 @@
 import { Navbar } from "@/components/landing/navbar"
 import { Hero } from "@/components/landing/hero"
 import { MortgageRatesBanner } from "@/components/landing/mortgage-rates-banner"
+import { AboutMe } from "@/components/landing/about-me"
 import { MortgageServices } from "@/components/landing/mortgage-services"
 
 export default function Page() {
@@ -11,6 +12,7 @@ export default function Page() {
         <Hero />
         <MortgageRatesBanner />
         <MortgageServices />
+        <AboutMe />
       </main>
     </div>
   )

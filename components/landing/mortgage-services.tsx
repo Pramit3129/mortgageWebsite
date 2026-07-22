@@ -1,8 +1,11 @@
 "use client"
 
+"use client"
+
+import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { ArrowUpRight, type LucideIcon } from "lucide-react"
+import { ArrowUpRight, ChevronDown, type LucideIcon } from "lucide-react"
 
 interface Service {
   title: string
@@ -14,52 +17,60 @@ interface Service {
 
 const services: Service[] = [
   {
-    title: "First-Time Home Buyers",
+    title: "First Time Home Buyers",
     description:
       "Navigating your first home purchase is a milestone. We guide you from pre-approval to closing with clarity and confidence.",
     icon: Home,
-    href: "#contact",
+    href: "/services/first-time-home-buyers",
     image: "/FirstTimeHomeBuyer.png",
   },
   {
-    title: "Mortgage Refinancing",
-    description:
-      "Your financial situation evolves. We restructure your mortgage to secure a better rate, access equity, or consolidate debt.",
-    icon: RefreshCw,
-    href: "#contact",
-    image: "/MortgageRefinincing.png",
-  },
-  {
-    title: "Mortgage Renewal",
+    title: "Renewals",
     description:
       "When your term ends, don't settle. We negotiate across multiple lenders to secure the strongest renewal terms for you.",
     icon: CalendarClock,
-    href: "#contact",
-    image: "/MortgageRenewable.png",
+    href: "/services/renewals",
+    image: "/RenewablesDetailPage1.png",
   },
   {
-    title: "Debt Consolidation",
+    title: "Refinances",
     description:
-      "Roll high-interest debts into your mortgage for one manageable payment. We structure it to save you thousands over time.",
-    icon: Combine,
-    href: "#contact",
-    image: "/DeptConsolidation.png",
+      "Your financial situation evolves. We restructure your mortgage to secure a better rate, access equity, or consolidate debt.",
+    icon: RefreshCw,
+    href: "/services/refinances",
+    image: "/MortgageRefinincing.png",
   },
   {
-    title: "Commercial Mortgages",
+    title: "Investment Property",
     description:
-      "Investment properties, multi-family units, and commercial real estate. We structure deals that align with your portfolio.",
+      "Build wealth through real estate. We structure financing for rental properties, multi-family units, and investment portfolios.",
+    icon: Building,
+    href: "/services/investment-property",
+    image: "/InvestmentPropertyDetailPage1.png",
+  },
+  {
+    title: "Construction Loan",
+    description:
+      "From ground-up builds to major renovations. We secure flexible financing that adapts as your project progresses.",
+    icon: HardHat,
+    href: "/services/construction-loan",
+    image: "/ConstructionLoanDetailPage1.png",
+  },
+  {
+    title: "Commercial Loan",
+    description:
+      "Retail spaces, offices, and commercial real estate. We structure deals that align with your business goals and portfolio.",
     icon: Building2,
-    href: "#contact",
+    href: "/services/commercial-loan",
     image: "/CommercialMortgages.png",
   },
   {
-    title: "Second Mortgages",
+    title: "Private Financing",
     description:
-      "Access your home's equity without breaking your first mortgage — ideal for renovations, investments, or major expenses.",
-    icon: Layers,
+      "When traditional lending doesn't fit, we connect you with private lenders for fast, flexible mortgage solutions.",
+    icon: ShieldCheck,
     href: "#contact",
-    image: "/SecondMortgage.png",
+    image: "/MortgageRefinincing.png",
   },
 ]
 
@@ -67,12 +78,18 @@ import {
   Home,
   RefreshCw,
   CalendarClock,
-  Combine,
   Building2,
-  Layers,
+  Building,
+  HardHat,
+  ShieldCheck,
 } from "lucide-react"
 
 export function MortgageServices() {
+  const [showAll, setShowAll] = useState(false)
+  const VISIBLE_COUNT = 6
+  const displayedServices = showAll ? services : services.slice(0, VISIBLE_COUNT)
+  const hasMore = services.length > VISIBLE_COUNT
+
   return (
     <section className="w-full bg-background py-16 sm:py-24">
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-12">
@@ -104,7 +121,7 @@ export function MortgageServices() {
 
         {/* Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {services.map((service) => (
+          {displayedServices.map((service) => (
             <Link
               key={service.title}
               href={service.href}
@@ -146,6 +163,21 @@ export function MortgageServices() {
             </Link>
           ))}
         </div>
+
+        {/* See More / See Less button */}
+        {hasMore && (
+          <div className="mt-8 flex justify-center">
+            <button
+              onClick={() => setShowAll(!showAll)}
+              className="flex items-center gap-2 px-6 py-3 border border-white/[0.08] bg-card text-sm font-light text-muted-foreground hover:text-accent hover:border-accent/40 transition-all duration-300"
+            >
+              {showAll ? "See Less" : "See More"}
+              <ChevronDown
+                className={`w-4 h-4 transition-transform duration-300 ${showAll ? "rotate-180" : ""}`}
+              />
+            </button>
+          </div>
+        )}
 
         {/* Bottom note */}
         <div className="mt-12 flex items-center gap-3">

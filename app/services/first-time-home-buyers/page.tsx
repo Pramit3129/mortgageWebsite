@@ -1,6 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowLeft, Home, FileText, Calculator, PiggyBank, TrendingUp, CheckCircle2, Phone, ArrowRight } from "lucide-react"
+import { Footer } from "@/components/landing/footer"
 
 const benefits = [
   {
@@ -97,11 +98,11 @@ export default function FirstTimeHomeBuyersPage() {
             </span>
           </Link>
           <a
-            href="tel:18885551234"
+            href="tel:+17787922220"
             className="flex items-center gap-2.5 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-white/90 backdrop-blur-md transition-all hover:border-accent/40 hover:text-white"
           >
             <Phone className="h-3.5 w-3.5 text-accent" />
-            <span className="tracking-wide whitespace-nowrap">1-888-555-1234</span>
+            <span className="tracking-wide whitespace-nowrap">+1 778-792-2220</span>
           </a>
         </div>
       </header>
@@ -257,14 +258,14 @@ export default function FirstTimeHomeBuyersPage() {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
-              href="/#contact"
+              href="/contact"
               className="inline-flex items-center gap-2 bg-accent hover:bg-accent/90 text-accent-foreground font-bold px-8 py-4 transition-all duration-300 text-sm group"
             >
               GET PRE-APPROVED
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
             <a
-              href="tel:18885551234"
+              href="tel:+17787922220"
               className="inline-flex items-center gap-2 border border-white/20 text-foreground hover:bg-white/5 font-semibold px-8 py-4 transition-all duration-300 text-sm"
             >
               <Phone className="w-4 h-4 text-accent" />
@@ -275,16 +276,7 @@ export default function FirstTimeHomeBuyersPage() {
       </section>
 
       {/* Footer */}
-      <footer className="w-full border-t border-white/[0.06] py-8">
-        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-12 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <Link href="/" className="font-serif text-sm text-accent tracking-[0.12em] font-bold">
-            VIPIN GARG
-          </Link>
-          <p className="text-[11px] text-muted-foreground/60 font-light tracking-wide">
-            &copy; {new Date().getFullYear()} Vipin Garg — Dominion Lending Centres. All rights reserved.
-          </p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   )
 }

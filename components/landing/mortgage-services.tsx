@@ -69,7 +69,7 @@ const services: Service[] = [
     description:
       "When traditional lending doesn't fit, we connect you with private lenders for fast, flexible mortgage solutions.",
     icon: ShieldCheck,
-    href: "#contact",
+    href: "/contact",
     image: "/MortgageRefinincing.png",
   },
 ]

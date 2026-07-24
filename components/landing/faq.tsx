@@ -401,7 +401,7 @@ export function Faq() {
               </p>
             </div>
             <a
-              href="#contact"
+              href="/contact"
               className="group/cta relative inline-flex items-center gap-2.5 px-7 py-3.5 border border-accent/30 bg-accent/[0.06] text-accent text-[13px] font-bold tracking-wide uppercase transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-accent hover:text-accent-foreground hover:border-accent hover:shadow-[0_0_32px_-4px_rgba(212,175,55,0.25)] active:scale-[0.98] shrink-0"
             >
               <span className="relative z-10">Get in Touch</span>

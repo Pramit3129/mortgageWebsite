@@ -5,6 +5,7 @@ import { AboutMe } from "@/components/landing/about-me"
 import { MortgageServices } from "@/components/landing/mortgage-services"
 import { Testimonials } from "@/components/landing/testimonials"
 import { Faq } from "@/components/landing/faq"
+import { Footer } from "@/components/landing/footer"
 
 export default function Page() {
   return (
@@ -18,6 +19,7 @@ export default function Page() {
         <Testimonials />
         <Faq />
       </main>
+      <Footer />
     </div>
   )
 }

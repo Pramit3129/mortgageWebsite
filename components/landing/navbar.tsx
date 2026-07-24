@@ -20,6 +20,11 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const scrollTo = (id: string) => (e: React.MouseEvent) => {
+    e.preventDefault();
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <header
       className="fixed top-0 inset-x-0 z-50 w-full h-20 lg:h-24 transition-all duration-500 ease-out"
@@ -54,7 +59,7 @@ export function Navbar() {
         {/* Center Column (Nav Links) */}
         <nav className="hidden lg:flex flex-none items-center gap-7 xl:gap-10 [text-shadow:0_1px_8px_rgba(0,0,0,0.7)]">
           <Link href="/" className="text-xs font-semibold tracking-[0.12em] text-accent uppercase whitespace-nowrap transition-colors">HOME</Link>
-          <Link href="#about" className="text-xs font-semibold tracking-[0.12em] text-white hover:text-accent uppercase whitespace-nowrap transition-colors">ABOUT ME</Link>
+          <a href="#about" onClick={scrollTo("about")} className="text-xs font-semibold tracking-[0.12em] text-white hover:text-accent uppercase whitespace-nowrap transition-colors cursor-pointer">ABOUT ME</a>
           <Link href="/mortgages" className="text-xs font-semibold tracking-[0.12em] text-white hover:text-accent uppercase whitespace-nowrap transition-colors">MORTGAGES</Link>
           <Link href="#calculators" className="text-xs font-semibold tracking-[0.12em] text-white hover:text-accent uppercase whitespace-nowrap transition-colors">CALCULATORS</Link>
           <Link href="/resources" className="text-xs font-semibold tracking-[0.12em] text-white hover:text-accent uppercase whitespace-nowrap transition-colors">RESOURCES</Link>
@@ -72,7 +77,7 @@ export function Navbar() {
             <SheetContent side="right" className="bg-background border-white/10 text-white p-8">
               <div className="flex flex-col gap-6 mt-8">
                 <Link href="/" className="text-lg font-medium text-accent">HOME</Link>
-                <Link href="#about" className="text-lg font-medium text-white/80">ABOUT ME</Link>
+                <a href="#about" onClick={scrollTo("about")} className="text-lg font-medium text-white/80 cursor-pointer">ABOUT ME</a>
                 <Link href="/mortgages" className="text-lg font-medium text-white/80">MORTGAGES</Link>
                 <Link href="#calculators" className="text-lg font-medium text-white/80">CALCULATORS</Link>
                 <Link href="/resources" className="text-lg font-medium text-white/80">RESOURCES</Link>

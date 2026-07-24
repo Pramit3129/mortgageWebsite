@@ -80,10 +80,10 @@ export function Hero() {
                     {/* CTA Buttons */}
                     <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-6 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-700 fill-mode-both">
                         <Button asChild className="bg-accent hover:bg-accent/90 text-accent-foreground font-bold px-8 py-7 rounded-full shadow-[0_0_35px_-5px_rgba(212,175,55,0.4)] transition-all duration-300 text-base group">
-                            <Link href="/contact">
-                                GET PRE-APPROVED
+                            <a href="https://velocity.newton.ca/sso/public.php?sc=1neinhlzaiawy" target="_blank" rel="noopener noreferrer">
+                                APPLY ONLINE
                                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-                            </Link>
+                            </a>
                         </Button>
                         <Button asChild variant="outline" className="border-white/20 text-foreground hover:bg-white/5 font-semibold px-8 py-7 rounded-full transition-all duration-300 text-base">
                             <Link href="#calculators">

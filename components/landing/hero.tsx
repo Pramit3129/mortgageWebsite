@@ -59,7 +59,8 @@ export function Hero() {
                     </p>
 
                     {/* Trust Metrics Grid */}
-                    <div className="grid grid-cols-3 divide-x divide-white/10 border border-white/10 rounded-2xl py-5 px-6 mb-10 w-full max-w-md bg-white/[0.03] backdrop-blur-xl shadow-2xl animate-in fade-in slide-in-from-bottom-4 duration-700 delay-500 fill-mode-both">
+                    <div className="grid grid-cols-2 divide-x divide-white/10 border border-white/10 rounded-2xl py-5 px-6 mb-10 w-full max-w-sm bg-white/[0.03] backdrop-blur-xl shadow-2xl animate-in fade-in slide-in-from-bottom-4 duration-700 delay-500 fill-mode-both">
+                        {/* TODO: Re-enable when Google Reviews are added — change grid-cols-2 back to grid-cols-3 and max-w-sm to max-w-md
                         <div className="flex flex-col items-center text-center px-2">
                             <div className="flex items-center gap-1 text-accent mb-1">
                                 <Star className="w-4 h-4 fill-accent" />
@@ -67,6 +68,7 @@ export function Hero() {
                             </div>
                             <span className="text-[10px] tracking-widest text-muted-foreground uppercase font-medium">Google Reviews</span>
                         </div>
+                        */}
                         <div className="flex flex-col items-center text-center px-2">
                             <span className="font-bold text-xl text-foreground mb-1">15+</span>
                             <span className="text-[10px] tracking-widest text-muted-foreground uppercase font-medium">Years Exp</span>

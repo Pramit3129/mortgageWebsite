@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { Phone, ArrowRight, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -12,6 +13,8 @@ import {
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+  const isHome = pathname === "/";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -22,7 +25,20 @@ export function Navbar() {
 
   const scrollTo = (id: string) => (e: React.MouseEvent) => {
     e.preventDefault();
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    const el = document.getElementById(id);
+    if (!el) return;
+    const navbarHeight = window.innerWidth >= 1024 ? 96 : 80;
+    const y = el.getBoundingClientRect().top + window.scrollY - navbarHeight - 16;
+    window.scrollTo({ top: y, behavior: "smooth" });
+  };
+
+  const scrollToTop = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (isHome) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      window.location.href = "/";
+    }
   };
 
   return (
@@ -40,11 +56,11 @@ export function Navbar() {
         
         {/* Left Column (Logo + Phone) */}
         <div className="flex-1 flex items-center gap-6">
-          <Link href="/" className="flex items-center">
+          <a href="/" onClick={scrollToTop} className="flex items-center cursor-pointer">
             <span className="font-serif text-base lg:text-lg text-accent tracking-[0.12em] font-bold whitespace-nowrap">
               VIPIN GARG
             </span>
-          </Link>
+          </a>
           <a
             href="tel:+17787922220"
             className="group hidden items-center gap-2.5 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-white/90 backdrop-blur-md transition-all hover:border-accent/40 hover:text-white sm:flex"
